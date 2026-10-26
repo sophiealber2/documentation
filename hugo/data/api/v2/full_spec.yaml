@@ -101978,6 +101978,14 @@ components:
     RUMApplicationCreateAttributes:
       description: RUM application creation attributes.
       properties:
+        create_default_retention_filters:
+          default: true
+          description: |-
+            Whether to create the default retention filters when the application is created: `Sessions with errors` and `Sessions`, both retaining 100% of sessions.
+            Set to `false` to create the application without them, for example when you add your own retention filters right after creating it. Until you add retention filters, the application only retains sessions with forced replays and Synthetics sessions.
+            The `Sessions with forced replays` and `Synthetics Sessions` filters are always created.
+          example: false
+          type: boolean
         name:
           description: Name of the RUM application.
           example: my_new_rum_application
@@ -118804,19 +118812,6 @@ components:
           type: string
         dataSource:
           $ref: "#/components/schemas/SecurityMonitoringStandardDataSource"
-        datasetIds:
-          description: IDs of the datasets queried by the rule. Only used when `queryLanguage` is `sql`.
-          items:
-            description: Dataset ID.
-            type: string
-          type: array
-        datasetVersions:
-          additionalProperties:
-            description: Dataset version.
-            format: int64
-            type: integer
-          description: Version of each dataset used by the rule, keyed by dataset ID. Only used when `queryLanguage` is `sql`.
-          type: object
         distinctFields:
           description: Field for which the cardinality is measured. Sent as an array.
           items:
@@ -118859,10 +118854,6 @@ components:
         query:
           description: Query to run on logs.
           example: a > 3
-          type: string
-        queryLanguage:
-          description: Language of the query. Use `sql` for SQL-based rules over datasets. Defaults to `event_query`.
-          example: sql
           type: string
       type: object
     SecurityMonitoringStandardRuleResponse:
@@ -219844,7 +219835,7 @@ paths:
               $ref: "#/components/schemas/RUMApplicationCreateRequest"
         required: true
       responses:
-        "200":
+        "201":
           content:
             application/json:
               examples:
@@ -219865,7 +219856,7 @@ paths:
                       type: rum_application
               schema:
                 $ref: "#/components/schemas/RUMApplicationResponse"
-          description: OK
+          description: Created
         "400":
           $ref: "#/components/responses/BadRequestResponse"
         "429":
