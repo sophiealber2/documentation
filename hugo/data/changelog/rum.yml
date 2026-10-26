@@ -29,3 +29,10 @@ entries:
       - ListSourcemaps
       - RestoreSourcemaps
     title: Accept WASM and Portable PDB source map kinds
+  - change_type: modified
+    date: '2026-10-26'
+    link: https://github.com/DataDog/documentation/pull/41006
+    operations:
+      - GetServiceRepositoryInfo
+      - ListSourcemaps
+    title: Document sourcemaps symbol_type and debug_id lookup
