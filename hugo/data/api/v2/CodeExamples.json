@@ -1,4 +1,21 @@
 {
+  "EvaluateAIGuardRequest": [
+    {
+      "group": "ai_guard",
+      "suffix": "",
+      "description": "Evaluate an AI Guard request returns \"OK\" response"
+    },
+    {
+      "group": "ai_guard",
+      "suffix": "_3923646360",
+      "description": "Evaluate an AI Guard request with a numeric confidence threshold"
+    },
+    {
+      "group": "ai_guard",
+      "suffix": "_1377048937",
+      "description": "Evaluate an AI Guard request with per-category confidence thresholds"
+    }
+  ],
   "CreateApmRetentionFilter": [
     {
       "group": "apm_retention_filters",
