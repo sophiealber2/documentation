@@ -29,3 +29,14 @@ entries:
       - ListSourcemaps
       - RestoreSourcemaps
     title: Accept WASM and Portable PDB source map kinds
+  - change_type: modified
+    date: '2026-10-26'
+    link: https://github.com/DataDog/documentation/pull/41011
+    operations:
+      - AggregateRUMEvents
+      - CreateRUMApplication
+      - DeleteRUMApplication
+      - GetRUMApplication
+      - GetRUMApplications
+      - UpdateRUMApplication
+    title: Align RUM applications and events spec with responses
